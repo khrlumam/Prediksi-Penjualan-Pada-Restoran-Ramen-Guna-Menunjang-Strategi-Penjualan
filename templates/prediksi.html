@@ -1,0 +1,166 @@
+{% include 'header.html' %}
+  <!-- Begin Page Content -->
+  <div class="container-fluid">
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-success">Prediksi</h6>
+      </div>
+      <div class="card-body">
+        <form enctype="multipart/form-data" method="POST" action="/prediksi/result">
+          <div class="col-md-7 form-group">
+            <label for="menu">Input Menu :</label>
+              <select class="form-control" id="menu" name="menu" required="required">
+                <option>Nama Menu</option>
+                <option value="0">AIR MINERAL</option>
+                <option value="1">AYAM CINCANG</option>
+                <option value="2">CABE POTONG</option>
+                <option value="3">CHAHAN NASI GORENG JEPANG</option>
+                <option value="4">CHASIU</option>
+                <option value="5">CHICKEN KATSU</option>
+                <option value="6">CHICKEN KATSU DONBURI</option>
+                <option value="7">CHICKEN KATSU RAMEN</option>
+                <option value="8">CHICKEN TERIYAKI DONBURI</option>
+                <option value="9">CHICKEN YAKINIKU DONBURI</option>
+                <option value="10">CHIKUWA</option>
+                <option value="11">COCA COLA</option>
+                <option value="12">CORN</option>
+                <option value="13">CURRY RAMEN</option>
+                <option value="14">CURRY RICE</option>
+                <option value="15">FISHROLL</option>
+                <option value="16">GYOZA</option>
+                <option value="17">ICE TEH</option>
+                <option value="18">KARAGE</option>
+                <option value="19">LEMON TEA</option>
+                <option value="20">MABOH TOFU RAMEN</option>
+                <option value="21">MAZESOBA RAMEN</option>
+                <option value="22">NARUTO MAKI</option>
+                <option value="23">NASI</option>
+                <option value="24">NORI</option>
+                <option value="25">OCHA</option>
+                <option value="26">ORANGE JUICE</option>
+                <option value="27">PAITAN RAMEN</option>
+                <option value="28">PAKCOY</option>
+                <option value="29">PAKET HEMAT 1</option>
+                <option value="30">PAKET HEMAT 2</option>
+                <option value="31">PAKET RAMADHAN 1</option>
+                <option value="32">PAKET RAMADHAN 2</option>
+                <option value="33">PUTU (PUDING TUKU)</option>
+                <option value="34">RAMEN</option>
+                <option value="35">RED RAMEN</option>
+                <option value="36">RED YASAI RAMEN</option>
+                <option value="37">SCALLOP</option>
+                <option value="38">SPICY CHICKEN YAKINIKU DONBURI</option>
+                <option value="39">SUKEMEN RAMEN</option>
+                <option value="40">SUPPAI RAMEN</option>
+                <option value="41">TAMAGO</option>
+                <option value="42">TAUGE</option>
+                <option value="43">TEH HANGAT/PANAS</option>
+                <option value="44">YAKISOBA RAMEN</option>
+              </select>
+          </div>
+
+          <div class="col-md-7 form-group">
+            <label for="kind">Input Periode Prediksi Penjulan :</label>
+              <select class="form-control" id="kind" name="kind" required="required">
+                <option>Bulan dan Minggu</option>
+                <option value="1">Januari Minggu Ke-1</option>
+                <option value="2">Januari Minggu Ke-2</option>
+                <option value="3">Januari Minggu Ke-3</option>
+                <option value="4">Januari Minggu Ke-4</option>
+                <option value="5">Januari Minggu Ke-5</option>
+                <option value="6">Februari Minggu Ke-1</option>
+                <option value="7">Februari Minggu Ke-2</option>
+                <option value="8">Februari Minggu Ke-3</option>
+                <option value="9">Februari Minggu Ke-4</option>
+                <option value="10">Maret Minggu Ke-1</option>
+                <option value="11">Maret Minggu Ke-2</option>
+                <option value="12">Maret Minggu Ke-3</option>
+                <option value="13">Maret Minggu Ke-4</option>
+                <option value="14">April Minggu Ke-1</option>
+                <option value="15">April Minggu Ke-2</option>
+                <option value="16">April Minggu Ke-3</option>
+                <option value="17">April Minggu Ke-4</option>
+                <option value="18">April Minggu Ke-5</option>
+                <option value="19">Mei Minggu Ke-1</option>
+                <option value="20">Mei Minggu Ke-2</option>
+                <option value="21">Mei Minggu Ke-3</option>
+                <option value="22">Mei Minggu Ke-4</option>
+                <option value="23">Juni Minggu Ke-1</option>
+                <option value="24">Juni Minggu Ke-2</option>
+                <option value="25">Juni Minggu Ke-3</option>
+                <option value="26">Juni Minggu Ke-4</option>
+                <option value="27">Juli Minggu Ke-1</option>
+                <option value="28">Juli Minggu Ke-2</option>
+                <option value="29">Juli Minggu Ke-3</option>
+                <option value="30">Juli Minggu Ke-4</option>
+                <option value="31">Juli Minggu Ke-5</option>
+                <option value="32">Agustus Minggu Ke-1</option>
+                <option value="33">Agustus Minggu Ke-2</option>
+                <option value="34">Agustus Minggu Ke-3</option>
+                <option value="35">Agustus Minggu Ke-4</option>
+                <option value="36">September Minggu Ke-1</option>
+                <option value="37">September Minggu Ke-2</option>
+                <option value="38">September Minggu Ke-3</option>
+                <option value="39">September Minggu Ke-4</option>
+                <option value="40">Oktober Minggu Ke-1</option>
+                <option value="41">Oktober Minggu Ke-2</option>
+                <option value="42">Oktober Minggu Ke-3</option>
+                <option value="43">Oktober Minggu Ke-4</option>
+                <option value="44">Oktober Minggu Ke-5</option>
+                <option value="45">November Minggu Ke-1</option>
+                <option value="46">November Minggu Ke-2</option>
+                <option value="47">November Minggu Ke-3</option>
+                <option value="48">November Minggu Ke-4</option>
+                <option value="49">Desember Minggu Ke-1</option>
+                <option value="50">Desember Minggu Ke-2</option>
+                <option value="51">Desember Minggu Ke-3</option>
+                <option value="52">Desember Minggu Ke-4</option>
+                <option value="53">Desember Minggu Ke-5</option>
+              </select>
+          </div>
+          <br>
+          <button type="submit" name="upload_btn" value="Upload" class="btn btn-success">Submit</button>
+        </form>
+        <br>
+        {% if data %}
+        <h4>Hasil Prediksi :</h4>
+        <p>Prediksi Penjualan Periode {{periode}}</p>
+          {% block content %}
+          <div style="text-align: center;">
+            {{ data | safe }}
+          </div>  
+          {% endblock %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+  <script
+    src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script
+    src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="{{ url_for('static', filename='js/sb-admin-2.min.js') }}"></script>
+
+  <!-- Page level plugins -->
+  <script
+    src="{{ url_for('static', filename='vendor/datatables/jquery.dataTables.min.js') }}"></script>
+  <script
+    src="{{ url_for('static', filename='vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="{{ url_for('static', filename='js/demo/datatables-demo.js') }}"></script>
+
+  </body>
+
+</html>

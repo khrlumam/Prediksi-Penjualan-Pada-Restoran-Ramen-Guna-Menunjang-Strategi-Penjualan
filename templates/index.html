@@ -1,0 +1,97 @@
+{% include 'header.html' %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">PREDIKSI PENJUALAN RESOTRAN TUKU RAMEN DENGAN METODE XGBOOST REGRESSOR</h1>
+  </div>
+
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-success">Harap Di Baca Terlebih Dahulu</h6>
+    </div>
+    <div class="card-body">
+      <p>1. Siapkan dataset penjualan dengan format yang tersedia.</p>
+      <p>2. Unggah data penjualan pada fitur upload data.</p>
+      <p>3. Untuk mendapatkan rekomendasi menu terbaik dan jenis diskon serta jumlah 
+        prediksi terdapat pada menu Prediksi dan Rekomendasi.</p>
+      <p>4.Untuk mengetahui prediksi penjualan per menu dapat dilihat pada menu Prediksi </p>
+      <p>5. Hasil dari prediksi akan tampil pada fitur Grafik yang berisi grafik prediksi penjualan.</p> 
+    </div>
+  </div>
+
+ <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-success">Upload Data</h6>
+    </div>
+    <div class="card-body">
+      <h2>Upload Data</h2>
+      <p>Upload data yang diinginkan untuk dataset dengan menggunakan format <a href="/uploads/template.xlsx" download="template.xlsx">berikut</a></p>
+        <p>Silahkan upload file dengan pilihan dibawah ini :</p>
+      <form enctype="multipart/form-data" method="POST" action="/upload-file">
+        <input type="file" name="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+        <div class="mt-3">
+          <button type="submit" name="upload_btn" value="Upload" class="btn btn-success">Submit</button>
+        </div>
+        <br>
+      </form>
+      <div id="statusMessage" style="margin-top: 20px;"></div>
+    </div>
+  <!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Bootstrap core JavaScript-->
+<script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+<script
+  src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+<!-- Core plugin JavaScript-->
+<script
+  src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="{{ url_for('static', filename='js/sb-admin-2.min.js') }}"></script>
+<!-- Status Upload File-->
+<script>
+  const form = document.querySelector('form');
+  const statusMessage = document.getElementById('statusMessage');
+
+  form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      try {
+          const response = await fetch('/upload-file', {
+              method: 'POST',
+              body: formData,
+          });
+
+          if (response.ok) {
+              // Successful upload
+              statusMessage.textContent = 'File berhasil diupload!';
+              statusMessage.style.color = 'green';
+          } else {
+              // Failed upload
+              statusMessage.textContent = 'File gagal diupload!';
+              statusMessage.style.color = 'red';
+          }
+      } catch (error) {
+          // Network error or other issues
+          statusMessage.textContent = 'An error occurred while uploading the file.';
+          statusMessage.style.color = 'red';
+      }
+  });
+</script>
+
+</body>
+
+</html>
